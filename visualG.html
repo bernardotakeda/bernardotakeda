@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="silva">
+    <div style="text-align: center;">
+        <h1>ALGORITMO 47</h1><br><br>
+        <img id= img1 src="natsumi.jpeg" 
+        <br><br><div class="code">
+            <pre><code id="code-snippet">
+algoritmo "Alg47"
+var
+altura, peso, imc: real
+mensagem: caractere
+                
+inicio
+// Solicita a altura e o peso ao usuário
+escreva("Digite sua altura em metros: ")
+leia(altura)
+                   
+escreva("Digite seu peso em quilogramas: ")
+leia(peso)
+                   
+// Calcula o IMC
+imc <- peso / (altura * altura)
+                   
+// Verifica se está abaixo, dentro ou acima do peso
+se imc < 18.5 entao
+mensagem <- "Você está abaixo do peso."
+senao
+mensagem <- "Você está acima do peso."
+fimse
+                   
+// Exibe o IMC e a mensagem
+escreva("Seu IMC é: ", imc)
+escreval()
+escreva(mensagem)
+                   
+fimalgoritmo
+            </code></pre>
+            <button onclick="copyToClipboard()">Copiar</button>
+          </div>
+</body>
+</html>
