@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerenciador de Pessoas</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        input, button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerenciador de Pessoas</h1>
+
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="text" id="profissao" placeholder="Profissão">
+    <br>
+
+    <button onclick="adicionarPessoa()">Adicionar</button>
+    <button onclick="removerPessoa()">Remover</button>
+    <br>
+
+    <h2>Pessoas:</h2>
+    <ul id="listaPessoas"></ul>
+
+    <h2>Profissões:</h2>
+    <ul id="listaProfissoes"></ul>
+
+    <script>
+        // Arrays para armazenar nomes e profissões
+        var nomes = [];
+        var profissoes = [];
+
+        function adicionarPessoa() {
+            var nomeInput = document.getElementById("nome");
+            var profissaoInput = document.getElementById("profissao");
+
+            var nome = nomeInput.value;
+            var profissao = profissaoInput.value;
+
+            if (nome && profissao) {
+                nomes.push(nome);
+                profissoes.push(profissao);
+
+                atualizarListas();
+                nomeInput.value = "";
+                profissaoInput.value = "";
+            }
+        }
+
+        function removerPessoa() {
+            var nomeInput = document.getElementById("nome");
+            var nome = nomeInput.value;
+
+            var index = nomes.indexOf(nome);
+            if (index !== -1) {
+                nomes.splice(index, 1);
+                profissoes.splice(index, 1);
+                alert("Pessoa removida com sucesso.");
+                atualizarListas();
+                nomeInput.value = "";
+            } else {
+                alert("Pessoa não encontrada.");
+            }
+        }
+
+        function atualizarListas() {
+            var listaPessoas = document.getElementById("listaPessoas");
+            var listaProfissoes = document.getElementById("listaProfissoes");
+
+            // Limpa as listas
+            listaPessoas.innerHTML = "";
+            listaProfissoes.innerHTML = "";
+
+            // Preenche as listas com os dados atualizados
+            for (var i = 0; i < nomes.length; i++) {
+                var liPessoa = document.createElement("li");
+                liPessoa.textContent = nomes[i];
+                listaPessoas.appendChild(liPessoa);
+
+                var liProfissao = document.createElement("li");
+                liProfissao.textContent = profissoes[i];
+                listaProfissoes.appendChild(liProfissao);
+            }
+        }
+    </script>
+</body>
+</html>
